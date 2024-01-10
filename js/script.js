@@ -39,3 +39,27 @@ document.querySelector("#shopping-cart-button").onclick = (e) => {
   shoppingcart.classList.toggle("active");
   e.preventDefault();
 };
+
+//Modal Box
+const itemDetailModal = document.querySelector("#item-detail-modal");
+const itemDetailButton = document.querySelectorAll(".item-detail-button");
+
+itemDetailButton.forEach((btn) => {
+  btn.onclick = (e) => {
+    itemDetailModal.style.display = "flex";
+    e.preventDefault();
+  };
+});
+
+//Close button
+document.querySelector(".modal .close-icon").onclick = (e) => {
+  itemDetailModal.style.display = "none";
+  e.preventDefault();
+};
+
+//klik diluar modal
+window.onclick = (e) => {
+  if (e.target === itemDetailModal) {
+    itemDetailModal.style.display = "none";
+  }
+};
